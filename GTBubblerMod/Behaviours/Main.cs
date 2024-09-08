@@ -34,7 +34,9 @@ namespace GTBubblerMod.Behaviours
                         continue;
                     }
 
-                    bubblerNames[i] = $"{CosmeticsController.instance.GetItemDisplayName(item).ToLower().ToTitleCase()} ({item.itemName})";
+                    Bubbler bubberHoldable = bubblerTotalList.First(predicate => predicate.name == bubbler);
+
+                    bubblerNames[i] = $"{CosmeticsController.instance.GetItemDisplayName(item).ToLower().ToTitleCase()} | {item.itemName} | {bubberHoldable.bubblerAudio && bubberHoldable.bubblerAudio.clip != null} | {bubberHoldable.popBubbleAudio && bubberHoldable.popBubbleAudio.clip != null}" ;
                 }
 
                 return string.Join("\n", bubblerNames);
