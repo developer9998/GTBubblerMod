@@ -12,7 +12,7 @@ The Audio Path config is relative to the mod. If you have an audio named "Pop.wa
 
 ### Audio Volume
 
-The Audio Volume config is ranged from a number value from 0.5 (50%) to 1.5 (150%) volume, a volume set over 1 (100%) may diminish audio quality.
+The Audio Volume config is ranged from a number value from 0 (0%) to 1.5 (150%) volume, a volume set over 1 (100%) may diminish audio quality.
 
 ### Retain Loop Time
 
