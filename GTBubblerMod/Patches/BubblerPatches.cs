@@ -12,6 +12,7 @@ namespace GTBubblerMod.Patches
         public static void SpawnPatch(Bubbler __instance)
         {
             // Main.Instance.BubblerSpawned(__instance);
+            // AccessTools.Field(__instance.GetType(), "initialTriggerDuration").SetValue(__instance, -21600);
         }
 
         [HarmonyPatch("OnEnable", 0), HarmonyPostfix, HarmonyWrapSafe]

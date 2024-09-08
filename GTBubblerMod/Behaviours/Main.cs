@@ -6,6 +6,7 @@ using GTBubblerMod.Models;
 using System.IO;
 using GTBubblerMod.Extensions;
 using System.Linq;
+using HarmonyLib;
 
 namespace GTBubblerMod.Behaviours
 {
@@ -103,6 +104,11 @@ namespace GTBubblerMod.Behaviours
 
             if (bubblerDataList.TryGetValue(item, out BubblerData data))
             {
+                if (bubbler.bubblerAudio && bubbler.bubblerAudio.clip != null && !data.Config.UseVibrations.Value)
+                {
+                    AccessTools.Field(bubbler.GetType(), "initialTriggerDuration").SetValue(bubbler, Time.realtimeSinceStartup - 21600);
+                }
+
                 if (data.LoopAudio)
                 {
                     bubbler.bubblerAudio.clip = data.LoopAudio;
@@ -141,14 +147,19 @@ namespace GTBubblerMod.Behaviours
 
             Logging.Info($"Registering bubbler {item.itemName}");
 
-            bool hasLoopAudio = bubbler.bubblerAudio;
+            bool hasLoopAudio = bubbler.bubblerAudio && bubbler.bubblerAudio.clip != null;
 
-            bool hasPopAudio = bubbler.popBubbleAudio;
+            bool hasPopAudio = bubbler.popBubbleAudio && bubbler.popBubbleAudio.clip != null;
 
             data = new(item);
 
             if (hasLoopAudio)
             {
+                if (!data.Config.UseVibrations.Value)
+                {
+                    AccessTools.Field(bubbler.GetType(), "initialTriggerDuration").SetValue(bubbler, Time.realtimeSinceStartup - 21600);
+                }
+
                 data.LoadAudio(directoryName, data.Config.AudioLoopPath, (AudioClip loopAudio) =>
                 {
                     data.LoopAudio = loopAudio;
