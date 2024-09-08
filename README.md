@@ -18,6 +18,10 @@ The Audio Volume config is ranged from a number value from 0 (0%) to 1.5 (150%) 
 
 The Retain Loop Time config will retain the timestamp of a looped audio when the Bubbler cosmetic is no longer activated, making the audio not restart each time after the cosmetic is activated.
 
+### Use Vibrations
+
+The Use Vibrations config will determine if the Bubbler cosmetic will vibrate the controller when activated.
+
 ## Usage
 
 **GTBubblerMod** is used when a Bubbler cosmetic is activated, where a "loop audio" is played and modified by the mod, the mod will do the same if a "pop audio" exists.
@@ -66,6 +70,11 @@ Audio Pop Path =
 # Default value: 1
 # Acceptable value range: From 0 to 1.5
 Audio Pop Volume = 1
+
+## Whether the bubbler will vibrate the controller when active
+# Setting type: Boolean
+# Default value: true
+Use Vibrations = true
 ```
 
 ## Disclaimer
