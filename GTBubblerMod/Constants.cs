@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GTBubblerMod
+﻿namespace GTBubblerMod
 {
     internal class Constants
     {
@@ -10,6 +6,6 @@ namespace GTBubblerMod
 
         public const string Name = "GTBubblerMod";
 
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
     }
 }
